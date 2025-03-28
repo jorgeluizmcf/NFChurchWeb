@@ -3155,7 +3155,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Copiando dados para a tabela nfchurch.users: ~23 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `facebook_id`, `username`, `password`, `nome`, `telefone`, `celular`, `cpf`, `created`, `modified`, `church_id`) VALUES
-	(1, NULL, 'igreja@igreja.com.br', '7c7d21e60d2e8aadf145dae950f4ff41c2d76791', 'igreja', 'igreja', NULL, NULL, '2015-01-09 18:27:17', '2015-01-09 18:27:17', 1);
+	(7, NULL, 'admin', 'a4a66e37462812bcaa842f6285bf387eaf34552c', 'admin', 'admin', NULL, NULL, '2015-01-09 18:27:17', '2015-01-09 18:27:17', 1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
