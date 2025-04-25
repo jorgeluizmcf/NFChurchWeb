@@ -5,21 +5,21 @@ class MembrosController extends SecretariaAppController {
     	//verifica se foi feito algum filtro	    	
     	if (!empty($this->request->data['filtro']))
     	{
-    		//condições para pesquisa
+			//condições para pesquisa
     		//campos para não entrar na pesquisa
     		$excludes = array('id', 'sexo', 'estado_id', 'estadocivil', 'escolaridade', 'profissao_id', 'igrejasanteriores', 'created', 'modified', 'uid', 'church_id', 'user_id', 'tipo');
     		//pega campos da model
     		$fields = $this->Membro->schema();
     		foreach ($fields as $key => $value) {
-    			if (!in_array($key, $excludes)) {
-    				$conditions['OR']['Membro.'.$key.' LIKE '] = '%'.$this->request->data['filtro'].'%';
+				if (!in_array($key, $excludes)) {
+					$conditions['OR']['Membro.'.$key.' LIKE '] = '%'.$this->request->data['filtro'].'%';
     			}
     		}
     		
     	}
     	else
     	{
-    		$conditions = array();
+			$conditions = array();
     	}
     	$conditions['Membro.tipo'] = 'Membro';    	
     	//busca todos os regsitros desta igreja
@@ -27,9 +27,11 @@ class MembrosController extends SecretariaAppController {
     	//seta registros para a view
     	$this->set('membros', $membros);
     }
-
+	
 	public function add()
 	{
+		
+		echo "aqui";
 		$this->Membro->create();
 		if($this->request->is('post') || $this->request->is('put')){
 			$this->request->data['Membro']['datamembro'] = implode('-', array_reverse(explode('/', $this->request->data['Membro']['datamembro'])));
@@ -71,8 +73,8 @@ class MembrosController extends SecretariaAppController {
 			$relacionamentos = ['0' => ''];
 			$relacionamentos += $this->Tiporelacionamento->find('list', array('fields' => array('id', 'descricao')));
 			$escolaridades = $this->Membro->Escolaridade->find('list', array('fields' => array('id', 'descricao')));
-			$denominacaos = $this->Membro->Denominacao->find('list', array('fields' => array('id', 'nome')));
-			$this->set('denominacaos', $denominacaos);
+			//$denominacaos = $this->Membro->Denominacao->find('list', array('fields' => array('id', 'nome')));
+			//$this->set('denominacaos', $denominacaos);
 			$this->set('escolaridades', $escolaridades);
 			$this->set('relacionamentos', $relacionamentos);
 			$this->set('parentes', $parentes);
@@ -83,7 +85,7 @@ class MembrosController extends SecretariaAppController {
 	
 	}
 
-	public function edit($id = null)
+	public function edit($id)
 	{
 		/*
 		Caso tenha sido passado um id para a função ele seta na model que este é o id do Membro que estamos tratando
@@ -150,7 +152,7 @@ class MembrosController extends SecretariaAppController {
 			$relacionamentos = ['0' => ''];
 			$relacionamentos += $this->Tiporelacionamento->find('list', array('fields' => array('id', 'descricao')));
 			$escolaridades = $this->Membro->Escolaridade->find('list', array('fields' => array('id', 'descricao')));
-			$denominacaos = $this->Membro->Denominacao->find('list', array('fields' => array('id', 'nome')));
+			//$denominacaos = $this->Membro->Denominacao->find('list', array('fields' => array('id', 'nome')));
 			/*
 			Fim Finds em banco de dados
 			**/
@@ -158,7 +160,7 @@ class MembrosController extends SecretariaAppController {
 			/*
 			Setando Variáveis para a view
 			**/
-			$this->set('denominacaos', $denominacaos);
+			//$this->set('denominacaos', $denominacaos);
 			$this->set('cargos', $cargos);
 			$this->set('estados', $estados);
 			$this->set('profissoes', $profissoes);
@@ -187,7 +189,8 @@ class MembrosController extends SecretariaAppController {
 		return $status;
 	}
 
-	public function removeMembroCargo($id = null){
+	public function removeMembroCargo($id){
+		echo $id;
 		$status = false;
 		$this->autoRender = false;
 		if (!empty($id)) {
