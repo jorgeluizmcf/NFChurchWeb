@@ -745,11 +745,11 @@ function apagaRelacionamento(campo, div, url) {
 }
 
 function apagaMembroCargo(campo, div, url) {
-	var valor = $("#"+campo).val();
+	var valor = campo;
 
 	$.ajax(
 	{
-		url : url+'/'+valor,
+		url : url,
 		type: "POST",
 		data : {id: valor},
 		success:function(data, textStatus, jqXHR) 

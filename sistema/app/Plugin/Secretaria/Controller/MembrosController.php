@@ -30,8 +30,6 @@ class MembrosController extends SecretariaAppController {
 	
 	public function add()
 	{
-		
-		echo "aqui";
 		$this->Membro->create();
 		if($this->request->is('post') || $this->request->is('put')){
 			$this->request->data['Membro']['datamembro'] = implode('-', array_reverse(explode('/', $this->request->data['Membro']['datamembro'])));
@@ -95,7 +93,7 @@ class MembrosController extends SecretariaAppController {
 		if (!$this->Membro->exists()) {
 			throw new NotFoundException(__('Membro inválidó.'));
 		}
-
+		
 		if ($this->request->is('post') || $this->request->is('put')) {			
 			/*
 			Se a requisição for Post trata as datas para realizar o save no Banco de Dados

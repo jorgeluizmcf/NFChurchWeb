@@ -30,13 +30,15 @@
         echo $this->Form->input('email', array('label' => 'Email Pessoal' ,'placeholder' => 'Entre com seu email', 'class' => 'form-control', 'div' => array('class' => 'form-group col-md-6')));
     ?>
     <div class="row" id="MembroCargo">
-        <?php if (!empty($this->request->data['Cargo'])) {
+        <?php
+        //echo '<pre> log :</br>'; print_r($this->request->data); echo '</pre>';
+        if (!empty($this->request->data['MembroCargo'])) {
             foreach ($this->request->data['MembroCargo'] as $key => $value) { ?>
                 <div class="col-md-12" id="cargo-<?php echo $key ?>">
                     <?php $carg = !empty($value['cargo_id']) ? $value['cargo_id'] : null; ?>
                     <?php
-                        echo $this->Form->input('MembroCargo.'.$key.'.id', array('class' => 'form-control', 'type' => 'hidden'));
-                        echo $this->Form->input('MembroCargo.'.$key.'.cargo_id', array('label' => 'Cargo', 'class' => 'form-control', 'div' => array('class' => 'form-group col-md-10'), 'type' => 'text', 'value' => !empty($cargos[$carg]) ? $carg.', '.$cargos[$carg] : ''));
+                        echo $this->Form->input('MembroCargo.'.$value['id'].'.id', array('class' => 'form-control', 'type' => 'hidden'));
+                        echo $this->Form->input('MembroCargo.'.$value['id'].'.cargo_id', array('label' => 'Cargo', 'class' => 'form-control', 'div' => array('class' => 'form-group col-md-10'), 'type' => 'text', 'value' => !empty($cargos[$carg]) ? $carg.', '.$cargos[$carg] : ''));
                     ?>
                     <div class="form-group col-md-1">
                         <a href="javascript:;" class="form-control btn btn-primary btns" onclick="modalLoadAdd('<?php echo $this->Html->url(array("plugin" => "secretaria", "controller" => "cargos", "action" => "add")); ?>', 'autocomplete', 'autocomplete');" data-toggle="tooltip" data-placement="top" title="Adicionar Cargo" style="margin-top:22px;" role="button">
@@ -44,7 +46,7 @@
                         </a>
                     </div>
                     <div class="form-group col-md-1">
-                        <a href="javascript:;" class="form-control btn btn-danger btns" onclick="apagaMembroCargo('MembroCargo<?php echo $key ?>Id', '<?php echo $key ?>', '<?php echo $this->Html->url(array('plugin' => 'secretaria', 'controller' => 'membros', 'action' => 'removeMembroCargo')); ?>');" data-toggle="tooltip" data-placement="top" title="Remover Cargo do membro" style="margin-top:22px;" role="button"><i class="fa fa-trash-o"></i></a>
+                        <a href="javascript:;" class="form-control btn btn-danger btns" onclick="apagaMembroCargo('<?php echo $value['id']?>', '<?php echo $key ?>', '<?php echo $this->Html->url(array('plugin' => 'secretaria', 'controller' => 'membros', 'action' => 'removeMembroCargo')); ?>');" data-toggle="tooltip" data-placement="top" title="Remover Cargo do membro" style="margin-top:22px;" role="button"><i class="fa fa-trash-o"></i></a>
                     </div>
                 </div>
             <?php } ?>
@@ -59,7 +61,7 @@
                     </a>
                 </div>
                 <div class="form-group col-md-1">
-                    <a href="javascript:;" class="form-control btn btn-danger btns" onclick="apagaMembroCargo('MembroCargo0Id', '0', '<?php echo $this->Html->url(array('plugin' => 'secretaria', 'controller' => 'membros', 'action' => 'removeMembroCargo')); ?>');" data-toggle="tooltip" data-placement="top" title="Remover Cargo do membro" style="margin-top:22px;" role="button"><i class="fa fa-trash-o"></i></a>
+                    <a href="javascript:;" class="form-control btn btn-danger btns" onclick="apagaMembroCargo('MembroCargoId', '0', '<?php echo $this->Html->url(array('plugin' => 'secretaria', 'controller' => 'membros', 'action' => 'removeMembroCargo')); ?>');" data-toggle="tooltip" data-placement="top" title="Remover Cargo do membro" style="margin-top:22px;" role="button"><i class="fa fa-trash-o"></i></a>
                 </div>
             </div>
         <?php } ?>
