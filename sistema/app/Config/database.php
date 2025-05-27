@@ -65,9 +65,9 @@ class DATABASE_CONFIG {
 public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => '192.168.1.13',
-		'login' => 'diego',
-		'password' => 'senhaboa93',
+		'host' => '0.0.0.0',
+		'login' => 'igreja',
+		'password' => 'igreja',
 		'database' => 'nfchurch',
 		'prefix' => '',
 		'encoding' => 'utf8',
