@@ -309,6 +309,13 @@
 
 				$this->request->data['Relatorio']['data_de'] = implode('-', array_reverse(explode('/', $this->request->data['Relatorio']['data_de'])));
 				$this->request->data['Relatorio']['data_ate'] = implode('-', array_reverse(explode('/', $this->request->data['Relatorio']['data_ate'])));
+				$conditions = array('Membro.ativo' => 1);
+
+				if (!empty($this->request->data['Relatorio']['data_de']) && !empty($this->request->data['Relatorio']['data_ate'])) {
+					$dataDe = date('Y-m-d 00:00:00', strtotime($this->request->data['Relatorio']['data_de']));
+					$dataAte = date('Y-m-d 23:59:59', strtotime($this->request->data['Relatorio']['data_ate']));
+					$conditions['Membro.datamembro BETWEEN ? AND ?'] = array($dataDe, $dataAte);
+				}
 
 				$this->Membro->virtualFields = array('soma' => 'COUNT(datamembro)', 'mes' => 'MONTH(datamembro)', 'ano' => 'YEAR(datamembro)');
 				$membros = $this->Membro->find(
@@ -316,10 +323,7 @@
 					array(
 						'group' => array('MONTH(datamembro)', 'YEAR(datamembro)'),
 						'fields' => array('soma', 'mes', 'ano'),
-						'conditions' => array(
-							'ativo' => '1',
-							'datamembro BETWEEN ? AND ?' => array($this->request->data['Relatorio']['data_de'], $this->request->data['Relatorio']['data_ate'])
-						),
+						'conditions' =>$conditions,
 						'order' => 'datamembro'
 					)
 				);
