@@ -49,13 +49,36 @@ a,a:hover,a:focus {
 }
 /*login page*/
 .login-body {
-    background:#32323A;
+    background:#0D0F0E;
     background-size:cover;
     width:100%;
     height:100%;
 }
+.logo-nc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 32px;
+    height: fit-content;
+}
+
+.logo-nc-style {
+    width: 200px;
+    height: 200px;
+}
+
+.logo-nc-home {
+    width: 100px;
+    height: 100%;
+    padding: 15px;
+}
+
+.img-carrosel {
+    max-height: 700px;
+}
+
 .form-signin {
-    max-width:330px;
+    max-width:380px;
     margin:100px auto;
     background:#fff;
     border-radius:5px;
@@ -65,7 +88,7 @@ a,a:hover,a:focus {
     margin:0;
     padding:35px 15px;
     text-align:center;
-    background:#aec785;
+    background:#4EA7B9;
     border-radius:5px 5px 0 0;
     -webkit-border-radius:5px 5px 0 0;
     color:#fff;
@@ -73,7 +96,7 @@ a,a:hover,a:focus {
     text-transform:uppercase;
     font-weight:300;
     font-family:'Open Sans',sans-serif;
-    border-bottom:10px solid #a0b87e;
+    border-bottom:10px solid #57D2D7;
 }
 .form-signin .checkbox {
     margin-bottom:14px;
@@ -105,7 +128,7 @@ a,a:hover,a:focus {
     font-size:12px;
 }
 .form-signin .btn-login {
-    background:#1fb5ac;
+    background:#4E88B8;
     color:#fff;
     text-transform:uppercase;
     font-weight:300;
@@ -127,7 +150,7 @@ a,a:hover,a:focus {
     font-weight:300;
 }
 .btn-login-fb:hover {
-    background: #365084;
+    background: #b7cbf1;
 }
 .form-signin a,.form-signin a:hover {
     color:#fff;
@@ -334,7 +357,10 @@ ul.sidebar-menu li a.active i {
     overflow-x: hidden;
 }
 .brand {
-    background:#032C40;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background:#4EA7B9;
     float:left;
     width:240px;
     height:80px;

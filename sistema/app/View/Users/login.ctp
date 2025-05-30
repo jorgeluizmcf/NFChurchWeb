@@ -5,7 +5,7 @@
       <meta name="author" content="ThemeBucket">
       <link rel="shortcut icon" href="images/favicon.html">
 
-      <title>NFCHURCH - Gestão para Igrejas</title>
+      <title>Gestão Igreja Nova Criação</title>
 
       <!--Core CSS -->
       <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -33,8 +33,11 @@
           echo '<div class="alert alert-info col-md-4 pull-right">'.$flash.'</div>';
         }
       ?>
+      <div class="logo-nc">
+        <?php echo $this->Html->image('logo-nova-criacao.png', ['alt' => 'Logo Nova Criação', 'class' => 'logo-nc-style']); ?>
+      </div>
       <?php echo $this->Form->create('User', array('class' => 'form-signin', 'role' => 'form')); ?>
-        <h2 class="form-signin-heading">NFCHURCH - Gestão para Igrejas</h2>
+        <h2 class="form-signin-heading">Sistema de Gestão - Nova Criação</h2>
         <div class="login-wrap">
             <div class="user-login-info">
                 <?php 
@@ -45,15 +48,14 @@
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Lembre-me
                 <span class="pull-right">
-                    <a data-toggle="modal" href="#myModal"> Esqueci minha senha</a>
+                    <a style="color:rgb(0, 124, 161); fon" data-toggle="modal" href="#myModal"> Esqueci minha senha</a>
                 </span>
             </label>
             <button class="btn btn-lg btn-login btn-block" type="submit">Entrar</button>
-            <a href="https://www.facebook.com/dialog/oauth?client_id=266658286843599&redirect_uri=<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'fblogin'), true); ?>" class="btn btn-lg btn-login-fb btn-block"><i class="fa fa-facebook"></i> Entrar pelo Facebook</a>
             <div class="registration">
                 Desenvolvido por
-                <a class="" target="_blank" href="https://www.nfservice.com.br">
-                    NFSERVICE
+                <a class="" target="_blank" href="https://github.com/jorgeluizmcf/NFChurchWeb">
+                    UNIFOR
                 </a>
             </div>
 
@@ -88,8 +90,8 @@
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <!--Core js-->
-    <script src="js/lib/jquery.js"></script>
-    <script src="bs3/js/bootstrap.min.js"></script>
+    <script src="/js/lib/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
   </body>
 </html>
