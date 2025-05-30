@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="favicon.ico">
-    <title>NFCHURCH - Gestão de Igrejas</title>
+    <title>Gestão Igreja Nova Criação</title>
     <!--Core CSS -->
     <?php 
         //array com os cores css
@@ -70,7 +70,7 @@
             <div class="brand">
 
                 <a href="javascript:;">
-                    <span class="logo-nf">NFCHURCH</span>
+                    <?php echo $this->Html->image('logo-modificado.png', ['alt' => 'Logo Nova Criação', 'class' => 'logo-nc-home']); ?>
                 </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>

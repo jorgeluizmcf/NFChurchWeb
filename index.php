@@ -19,9 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <title>NFChurch - Primeiro software Open Source para gestão de igrejas</title>
+    <title>Gestão Igreja Nova Criação</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -48,7 +48,7 @@
   </head>
 
   <body role="document">
-
+    <?php echo $scriptAlerta; // Imprime o alerta aqui ?>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -59,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">NFCHURCH - Gestão para igrejas</a>
+                <a class="navbar-brand" href="#">Gestão Igreja Nova Criação</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
